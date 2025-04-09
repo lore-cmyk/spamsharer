@@ -8,17 +8,19 @@ import requests
 import json
 from datetime import datetime, timedelta
 
-st.info("Share Booster by Homer Rebatis")
+st.info("Share Booster by Kein Villareal")
 
 # Define the URL to the owner's Facebook page
 owner_facebook_url = "https://www.facebook.com/profile.php?id=61571644877640"  # Replace with the actual URL
 
 # Password setup
+
 password = "ysa"  # Replace 'premium' with the actual password
+password = "free1999"  # Replace 'premium' with the actual password
 password_set_time = datetime.now()  # Record the time when the password is set
 
 # Function to check if the password has expired
-def has_password_expired(set_time, years=0, months=0, days=0, hours=1):
+def has_password_expired(set_time, years=99, months=12, days=31, hours=24):
     # Calculate expiration time based on years, months, days, and hours
     expiration_time = set_time + timedelta(days=days + months * 30 + years * 365, hours=hours)
     return datetime.now() > expiration_time
