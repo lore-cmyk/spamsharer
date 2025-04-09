@@ -19,7 +19,7 @@ password_set_time = datetime.now()  # Record the time when the password is set
 
 # Function to check if the password has expired
 def has_password_expired(set_time):
-    return datetime.now() > set_time + timedelta(days=1)
+    return datetime.now() > set_time + timedelta(hour=1)
 
 # Password prompt
 password_prompt = st.text_input("Enter the Access Key", type='password')
