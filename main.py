@@ -6,18 +6,30 @@ import re
 import time
 import requests
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 
 st.info("Share Booster by Homer Rebatis")
 
-# Set the expiration date
-expiration_date = datetime(2025, 4, 10)  # Day, Month, Year
-current_date = datetime.now()
+# Define the URL to the owner's Facebook page
+owner_facebook_url = "https://www.facebook.com/helloworld5463882"  # Replace with the actual URL
 
-# Check if the script is expired
-if current_date > expiration_date:
-    st.warning("Avail to the owner to Access this Premium Share Booster : [Avail Now!](https://www.facebook.com/helloworld5463882)")
-else:
+# Password setup
+password = "freetrial"  # Replace 'premium' with the actual password
+password_set_time = datetime.now()  # Record the time when the password is set
+
+# Function to check if the password has expired
+def has_password_expired(set_time, years=0, months=0, days=0, hours=0):
+    # Calculate expiration time based on years, months, days, and hours
+    expiration_time = set_time + timedelta(days=days + months * 30 + years * 365, hours=hours)
+    return datetime.now() > expiration_time
+
+# Password prompt
+password_prompt = st.text_input("Enter the Access Key", type='password')
+st.markdown(f"[Avail to the Owner]({owner_facebook_url})")  # Link to the owner's Facebook page
+
+# Check for the correct password
+if password_prompt == password and not has_password_expired(password_set_time, years=0, months=0, days=1, hours=0):
+
     def Execute(cookie, post, share_count, delay):
         head = {
             'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
@@ -30,6 +42,7 @@ else:
             'sec-fetch-user': '?1',
             'upgrade-insecure-requests': '1'
         }
+        
         class Share:
             async def get_token(self, session):
                 try:
@@ -40,17 +53,17 @@ else:
                         return access_token, head['cookie']
                 except Exception as er:
                     st.error(":red-background[blocked] Cookie blocked")
-
+            
             async def share(self, session, token, cookie):
                 ji = {
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
                     "sec-ch-ua": '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
                     "sec-ch-ua-mobile": "?0",
                     "sec-ch-ua-platform": "Windows",
-                    "sec-fetch-dest": "document",
-                    "sec-fetch-mode": "navigate",
-                    "sec-fetch-site": "none",
-                    "sec-fetch-user": "?1",
+                    "sec-fetch-dest": 'document',
+                    "sec-fetch-mode": 'navigate',
+                    "sec-fetch-site": 'none',
+                    "sec-fetch-user": '?1',
                     "upgrade-insecure-requests": "1",
                     "cookie": cookie,
                     "accept-encoding": "gzip, deflate",
@@ -89,26 +102,26 @@ else:
         try:
             session=requests.Session()
             headers = {
-                'authority': 'free.facebook.com',
-                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment closer]*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-                'accept-language': 'en-US,en;q=0.9',
-                'cache-control': 'max-age=0',
-                'content-type': 'application/x-www-form-urlencoded',
-                'dpr': '3',
-                'origin': 'https://free.facebook.com',
-                'referer': 'https://free.facebook.com/login/?email=%s'%(user),
-                'sec-ch-prefers-color-scheme': 'dark',
-                'sec-ch-ua': '"Not-A.Brand";v="99", "Chromium";v="124"',
-                'sec-ch-ua-full-version-list': '"Not-A.Brand";v="99.0.0.0", "Chromium";v="124.0.6327.1"',
-                'sec-ch-ua-mobile': '?1',
-                'sec-ch-ua-platform': '"Android"',
-                'sec-fetch-dest': 'document',
-                'sec-fetch-mode': 'navigate',
-                'sec-fetch-site': 'same-origin',
-                'sec-fetch-user': '?1',
-                'upgrade-insecure-requests': '1',
-                'user-agent': "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-                'viewport-width': '980',
+            'authority': 'free.facebook.com',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment closer]*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'accept-language': 'en-US,en;q=0.9',
+            'cache-control': 'max-age=0',
+            'content-type': 'application/x-www-form-urlencoded',
+            'dpr': '3',
+            'origin': 'https://free.facebook.com',
+            'referer': 'https://free.facebook.com/login/?email=%s'%(user),
+            'sec-ch-prefers-color-scheme': 'dark',
+            'sec-ch-ua': '"Not-A.Brand";v="99", "Chromium";v="124"',
+            'sec-ch-ua-full-version-list': '"Not-A.Brand";v="99.0.0.0", "Chromium";v="124.0.6327.1"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'document',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-site': 'same-origin',
+            'sec-fetch-user': '?1',
+            'upgrade-insecure-requests': '1',
+            'user-agent': "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
+            'viewport-width': '980',
             }
             getlog = session.get(f'https://free.facebook.com/login.php')
             idpass ={"lsd":re.search('name="lsd" value="(.*?)"', str(getlog.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(getlog.text)).group(1),"m_ts":re.search('name="m_ts" value="(.*?)"', str(getlog.text)).group(1),"li":re.search('name="li" value="(.*?)"', str(getlog.text)).group(1),"try_number":"0","unrecognize_tries":"0","email":user,"pass":passw,"login":"Log In","bi_xrwh":re.search('name="bi_xrwh" value="(.*?)"', str(getlog.text)).group(1),}
@@ -126,29 +139,29 @@ else:
 
     #----------------------------#
     COOKIEm, APPSTATEm, LOGINm = st.tabs(["Cookie", "Appstate", "Login"])
+    
     with COOKIEm:
-        COOKIE = st.text_area("Cookie",key='a1')
-        POST = st.text_input("Post link",key='a2')
-        COUNT = st.number_input("Count", min_value=1, max_value=50000,key='a3')
-        DELAY = st.number_input("Delay", min_value=0, max_value=50000,key='a4')
-        if st.button("Submit", type='primary',key="aa1"):
+        COOKIE = st.text_area("Cookie", key='a1')
+        POST = st.text_input("Post link", key='a2')
+        COUNT = st.number_input("Count", min_value=1, max_value=50000, key='a3')
+        DELAY = st.number_input("Delay", min_value=0, max_value=50000, key='a4')
+        if st.button("Submit", type='primary', key="aa1"):
             if not COOKIE or not POST or not COUNT:
                 st.error("Missing inputs value")
             elif 'c_user' not in COOKIE:
                 st.error("Invalid cookie")
-    #       elif not cCheck(COOKIE):
-    #           st.error("Cookie Die")
             elif not POST.startswith('https://www.facebook.com/'):
                 st.error("Invalid post link")
             else:
                 with st.container(border=True):
                     i = Execute(COOKIE, POST, int(COUNT), int(DELAY))
+    
     with APPSTATEm:
-        APPSTATE = st.text_area("Appstate",key='b1')
-        POST = st.text_input("Post link",key='b2')
-        COUNT = st.number_input("Count", min_value=1, max_value=50000,key='b3')
-        DELAY = st.number_input("Delay", min_value=0, max_value=50000,key='b4')
-        if st.button("Submit", type='primary',key='bb1'):
+        APPSTATE = st.text_area("Appstate", key='b1')
+        POST = st.text_input("Post link", key='b2')
+        COUNT = st.number_input("Count", min_value=1, max_value=50000, key='b3')
+        DELAY = st.number_input("Delay", min_value=0, max_value=50000, key='b4')
+        if st.button("Submit", type='primary', key='bb1'):
             if not APPSTATE or not POST or not COUNT:
                 st.error("Missing inputs value")
             elif not POST.startswith('https://www.facebook.com/'):
@@ -157,20 +170,19 @@ else:
                 with st.container(border=True):
                     try:
                         _k = json.loads(APPSTATE)
-                        __cookie = []
-                        for k in _k:
-                            __cookie.append(f'{k["key"]}={k["value"]};')
+                        __cookie = [f'{k["key"]}={k["value"]};' for k in _k]
                         _Cow_ = ''.join(__cookie)
                         b = Execute(_Cow_, POST, int(COUNT), int(DELAY))
                     except Exception as vjh:
                         st.error(vjh)
+    
     with LOGINm:
         _login = st.container(border=True)
         username = _login.text_input("Username")
         password = _login.text_input("Password", type='password')
-        POST = st.text_input("Post link",key='c2')
-        COUNT = st.number_input("Count", min_value=1, max_value=50000,key='c3')
-        DELAY = st.number_input("Delay", min_value=0, max_value=50000,key='c4')
+        POST = st.text_input("Post link", key='c2')
+        COUNT = st.number_input("Count", min_value=1, max_value=50000, key='c3')
+        DELAY = st.number_input("Delay", min_value=0, max_value=50000, key='c4')
         if st.button("Submit", type='primary', key='cc1'):
             if not username or not password or not POST:
                 st.error("Missing inputs value")
@@ -181,3 +193,9 @@ else:
                         tite = Execute(v['b'], POST, int(COUNT), int(DELAY))
                     else:
                         st.error(v['b'])
+
+else:
+    if has_password_expired(password_set_time, years=0, months=0, days=0, hours=1):
+        st.warning("The password has expired. Please avail to access this premium Share Booster.")
+    else:
+        st.warning("You need to avail to access this premium Share Booster.")
