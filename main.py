@@ -14,12 +14,12 @@ st.info("Share Booster by Homer Rebatis")
 owner_facebook_url = "https://www.facebook.com/helloworld5463882"  # Replace with the actual URL
 
 # Password setup
-password = "premium"  # Replace 'premium' with the actual password
+password = "bogartpogi"  # Replace 'premium' with the actual password
 password_set_time = datetime.now()  # Record the time when the password is set
 
 # Function to check if the password has expired
 def has_password_expired(set_time):
-    return datetime.now() > set_time + timedelta(hour=1)
+    return datetime.now() > set_time + timedelta(hours=1)
 
 # Password prompt
 password_prompt = st.text_input("Enter the Access Key", type='password')
