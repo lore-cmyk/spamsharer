@@ -16,7 +16,8 @@ current_date = datetime.now()
 
 # Check if the script is expired
 if current_date > expiration_date:
-    st.warning("Expired! Avail to the owner to Access this Premium Share Booster : [Avail Now!](https://www.facebook.com/helloworld5463882)")
+    st.error.("PREMIUM SHARE BOOSTER EXPIRED!!")
+    st.warning("Avail to the owner to Access this Premium Share Booster : [Avail Now!](https://www.facebook.com/helloworld5463882)")
 else:
     def Execute(cookie, post, share_count, delay):
         head = {
