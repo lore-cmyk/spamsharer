@@ -11,12 +11,11 @@ from datetime import datetime
 st.info("Share Booster by Homer Rebatis")
 
 # Set the expiration date
-expiration_date = datetime(2025, 4, 9)  # Day, Month, Year
+expiration_date = datetime(2025, 4, 10)  # Day, Month, Year
 current_date = datetime.now()
 
 # Check if the script is expired
 if current_date > expiration_date:
-    st.error.("PREMIUM SHARE BOOSTER EXPIRED!!")
     st.warning("Avail to the owner to Access this Premium Share Booster : [Avail Now!](https://www.facebook.com/helloworld5463882)")
 else:
     def Execute(cookie, post, share_count, delay):
