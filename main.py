@@ -18,7 +18,7 @@ password = "pornhub"  # Replace 'premium' with the actual password
 password_set_time = datetime.now()  # Record the time when the password is set
 
 # Function to check if the password has expired
-def has_password_expired(set_time, years=0, months=0, days=0, hours=0):
+def has_password_expired(set_time, years=0, months=0, days=0, hours=1):
     # Calculate expiration time based on years, months, days, and hours
     expiration_time = set_time + timedelta(days=days + months * 30 + years * 365, hours=hours)
     return datetime.now() > expiration_time
@@ -195,7 +195,7 @@ if password_prompt == password and not has_password_expired(password_set_time, y
                         st.error(v['b'])
 
 else:
-    if has_password_expired(password_set_time, years=0, months=0, days=0, hours=0):
-        st.warning("The password has expired. Please avail to access this premium Share Booster.")
+    if has_password_expired(password_set_time, years=0, months=0, days=0, hours=1):
+        st.warning("The Access Key has been expired. Please avail to access this premium Share Booster.")
     else:
         st.warning("You need to avail to access this premium Share Booster.")
