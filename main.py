@@ -11,10 +11,10 @@ from datetime import datetime, timedelta
 st.info("Share Booster by Homer Rebatis")
 
 # Define the URL to the owner's Facebook page
-owner_facebook_url = "https://www.facebook.com/helloworld5463882"  # Replace with the actual URL
+owner_facebook_url = "https://www.facebook.com/profile.php?id=61571644877640"  # Replace with the actual URL
 
 # Password setup
-password = "pornhub"  # Replace 'premium' with the actual password
+password = "ysa"  # Replace 'premium' with the actual password
 password_set_time = datetime.now()  # Record the time when the password is set
 
 # Function to check if the password has expired
@@ -28,7 +28,7 @@ password_prompt = st.text_input("Enter the Access Key", type='password')
 st.markdown(f"[Avail to the Owner]({owner_facebook_url})")  # Link to the owner's Facebook page
 
 # Check for the correct password
-if password_prompt == password and not has_password_expired(password_set_time, years=0, months=0, days=1, hours=0):
+if password_prompt == password and not has_password_expired(password_set_time, years=40, months=12, days=1, hours=24):
 
     def Execute(cookie, post, share_count, delay):
         head = {
