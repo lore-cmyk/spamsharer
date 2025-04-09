@@ -11,7 +11,7 @@ from datetime import datetime
 st.info("Share Booster by Homer Rebatis")
 
 # Set the expiration date
-expiration_date = datetime(2025, 4, 99)  # Day, Month, Year
+expiration_date = datetime(2025, 4, 9)  # Day, Month, Year
 current_date = datetime.now()
 
 # Check if the script is expired
