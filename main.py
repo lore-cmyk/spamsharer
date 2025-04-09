@@ -14,7 +14,7 @@ st.info("Share Booster by Homer Rebatis")
 owner_facebook_url = "https://www.facebook.com/helloworld5463882"  # Replace with the actual URL
 
 # Password setup
-password = "freemium"  # Replace 'premium' with the actual password
+password = "bogartpogi"  # Replace 'premium' with the actual password
 password_set_time = datetime.now()  # Record the time when the password is set
 
 # Function to check if the password has expired
