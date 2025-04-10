@@ -15,7 +15,6 @@ owner_facebook_url = "https://www.facebook.com/profile.php?id=61571644877640"  #
 
 # Password setup
 
-password = "ysa"  # Replace 'premium' with the actual password
 password = "free1999"  # Replace 'premium' with the actual password
 password_set_time = datetime.now()  # Record the time when the password is set
 
