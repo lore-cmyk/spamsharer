@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit import query_params as qp
 import aiohttp
 import asyncio
 import re
@@ -14,7 +13,6 @@ st.info("Share Booster by Kein Villareal")
 owner_facebook_url = "https://www.facebook.com/profile.php?id=61571644877640"  # Replace with the actual URL
 
 # Password setup
-
 password = "free1999"  # Replace 'premium' with the actual password
 password_set_time = datetime.now()  # Record the time when the password is set
 
